@@ -1,1 +1,1 @@
-"# quickstatistics.github.io" 
+"# https://mairoviana.github.io/Quick-Statistics/" 
