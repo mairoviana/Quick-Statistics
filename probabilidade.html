@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Projeto Estatistica</title>
+        <script type="text/javascript" src="js/probabilidade.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="jumbutron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Probabilidade</h1>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs justify-content-center" id="pills-nav" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Uniforme</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Binomial</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-pills-03" data-toggle="pill" href="#nav-item-03">Normal</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <div class="tab-content" id="nav-pills-content">
+                            <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
+                                <form>
+                                    <div class="row">               
+                                        <div class="col">                          
+                                            <select name="opcao" class="form-control" id="OpcaoUniforme" onchange="OpcaoProbabilidadeUniforme()">
+                                                <option value="Escolha" selected disabled>Escolha</option>
+                                                <option value="Maior que">Maior que</option> 
+                                                <option value="Entre">Entre</option>
+                                                <option value="Menor que">Menor que</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="intervalo" id="minimo" placeholder="Ponto mínimo">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="intervalo" id="maximo" placeholder="Ponto máximo">
+                                        </div>                                        
+                                        
+                                        <input type="button" value="Calcular" class="btn btn-primary" onclick="probabilidadeUniforme()">
+
+                                    </div> 
+                                    <br>
+                                    <div class="row justify-content-start">   
+                                        <div class="col"></div>                                     
+                                        <!--INTERVALO-->
+                                        <div id="EscolhaUniforme"></div>
+                                    </div>
+                                </form> 
+                                <!--PROBABILIDADE CALCULADA-->
+                                <div id="ResultadoUniforme"></div>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-item-02" role="tabpanel">
+                                <div class="row">
+                                    <form>
+                                        <div class="row">   
+                                            <div class="col">
+                                                <select name="opcao" class="form-control" id="OpcaoBinomial" >
+                                                    <option value="Escolha" selected disabled>Escolha</option>
+                                                    <option value="Maior que">Maior que</option> 
+                                                    <option value="Entre">Entre</option>
+                                                    <option value="Menor que">Menor que</option>
+                                                </select> 
+                                            </div>                                                                    
+                                            <div class="col">
+                                                <input type="text" class="form-control" name="P" id="Pbinomial" placeholder="P (sucesso)">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" name="Q" id="Qbinomial" placeholder="Q (fracasso)">
+                                            </div> 
+                                            <div class="col">
+                                                <input type="text" class="form-control" name="N" id="Nbinomial" placeholder="N (tamanho da amostra)">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" name="K" id="Kbinomial" placeholder="K (evento)">
+                                            </div>                                       
+                                            
+                                            <input type="button" value="Calcular" class="btn btn-primary" onclick="probabilidadeBinomial()">
+    
+                                        </div> 
+                                        <br>
+                                        <div class="row justify-content-start">   
+                                            <div class="col"></div>                                     
+                                            <!--INTERVALO-->
+                                            <div id="EscolhaBinomial"></div>
+                                        </div>
+                                    </form> 
+                                </div>            
+                                <!--PROBABILIDADE CALCULADA-->
+                                <div id="ResultadoBinomial"></div>                   
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-item-03" role="tabpanel">
+                                <div class="row">
+                                    <form>
+                                        <div class="row">               
+                                            <div class="col">                          
+                                                <select name="opcao" class="form-control" id="OpcaoNormal" onchange="OpcaoProbabilidadeNormal()">
+                                                    <option value="Escolha" selected disabled>Escolha</option>
+                                                    <option value="Maior que">Maior que</option> 
+                                                    <option value="Entre">Entre</option>
+                                                    <option value="Menor que">Menor que</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="col">
+                                                <input type="text" class="form-control" name="media" id="mediaNormal" placeholder="Média">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" name="desvioPadrao" id="desvioPadrao" placeholder="Desvio Padrão">
+                                            </div>                                        
+                                            
+                                            <input type="button" value="Calcular" class="btn btn-primary" onclick="probabilidadeNormal()">
+    
+                                        </div> 
+                                        <br>
+                                        <div class="row justify-content-start">   
+                                            <div class="col"></div>                                     
+                                            <!--INTERVALO-->
+                                            <div id="EscolhaNormal"></div>
+                                        </div>
+                                    </form>                                     
+                                </div>
+                                <!--PROBABILIDADE CALCULADA-->                                    
+                                <div id="ResultadoNormal"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+
+</html>

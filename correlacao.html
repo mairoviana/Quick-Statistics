@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Projeto Estatistica</title>
+        <style>
+            #container {
+                position: relative;
+                width: 60%;
+                height: 400px;
+                margin: 0 auto;
+                padding: 0;
+            }
+        </style>
+        <script type="text/javascript" src="js/correlacao.js"></script> 
+        <script	src="https://cdn.anychart.com/samples/scatter-charts/combination-of-line-and-marker-charts/data.js"></script>
+        <script	src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+        <script	src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+        <script	src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Correlação e Regressão</h1>
+                    <hr>
+                </div>
+            </div>
+        </div>       
+        <div class="container bg-light">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="NomeIndependente">Nome da variavel independente:</label>
+                        <input type="text" class="form-control" id="NomeIndependente" placeholder="Nome da variavel (X).">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ValoresIndependente">Valores de (X):</label>
+                        <input type="text" class="form-control" id="ValoresIndependente" placeholder="Valores de (X) separados por espaços.">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="NomeDependente">Nome da variavel dependente:</label>
+                        <input type="text" class="form-control" id="NomeDependente" placeholder="Nome da variavel (Y).">
+                    </div>                        
+                    <div class="form-group col-md-6">
+                        <label for="NomeDependente">Valores de (Y):</label>
+                        <input type="text" class="form-control" id="ValoresDependente" placeholder="Valores de (Y) separados por espaços.">
+                    </div> 
+                </div>
+                <input type="button" value="Calcular" class="btn btn-primary" onclick="Calcular()">
+            </form>
+        </div>
+        <br>
+        <div id="dados" class="container"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1 col-sm-3" id="equacao1"></div>
+                <div class="col-md-1 col-sm-1" id="equacao2"></div>
+                <div class="col-md-1 col-sm-4" id="equacao3"></div>
+                <div class="col-md-1 col-sm-1" id="equacao4"></div>
+                <div class="col-md-1 col-sm-3" id="equacao5"></div>
+            </div>
+        </div>
+        <br>
+        <!--ÁREA DO GRÁFICO-->
+            <div id="container"></div>
+        </div>
+    </body>
+</html>
