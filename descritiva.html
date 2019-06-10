@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf8" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/magic-check.css" rel="stylesheet">
         <title>Projeto Estatistica | Descritiva</title>
         <script type="text/javascript" src="js/descritiva.js"></script>        
     </head>
@@ -29,7 +30,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-grou col-md-4">
-                        <input type="radio" name="tipo" value="qualiNominal" checked>Qualitativa Nominal<br>
+                        <input class="magic-radio" input type="radio" name="tipo" value="qualiNominal" checked>Qualitativa Nominal<br> <label for="2"> </label>
+
+
+
                         <input type="radio" name="tipo" value="qualiOrdinal">Qualitativa Ordinal<br>
                         <input type="radio" name="tipo" value="quantDiscreta">Quantitativa Discreta<br>
                         <input type="radio" name="tipo" value="quantContinua">Quantitativa Continua<br>
