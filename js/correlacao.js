@@ -1,7 +1,7 @@
 var projetar = document.createElement('input');
     projetar.type = "button";
     projetar.value = "Projetar";
-    projetar.classList = "btn btn-primary";
+    projetar.classList = "btn btn-warning";
     projetar.id = "Projetar";
 
 function somatoria(vet) {
@@ -113,6 +113,8 @@ function Calcular() {
     let equacao5 = document.getElementById('equacao5');
     let correl = document.createElement('p');
         correl.id = "txtCorelacao";
+        correl.style.paddingTop = "1%";
+        correl.style.paddingLeft = "2%";
     let textoCorrelacao;
     if (correlacao >= 60) {
         textoCorrelacao = document.createTextNode('Correlação significante de: ' + correlacao.toFixed(2) + '%');
@@ -252,7 +254,7 @@ function desenharGrafico(menorX, menorY, maiorX, maiorY, NomeX, NomeY, dados_dis
         .size(4);
     marker.hovered()
         .size(6)
-        .fill('red')
+        .fill('gold')
         .stroke(anychart.color.darken('black'));
     marker.tooltip()
         .hAlign('start')
@@ -436,6 +438,8 @@ projetar.onclick = function () {
     let equacao5 = document.getElementById('equacao5');
     let correl = document.createElement('p');
         correl.id = "txtCorelacao";
+        correl.style.paddingTop = "1%";
+        correl.style.paddingLeft = "2%";
     let textoCorrelacao;
     if (correlacao >= 60) {
         textoCorrelacao = document.createTextNode('Correlação significante de: ' + correlacao.toFixed(2) + '%');

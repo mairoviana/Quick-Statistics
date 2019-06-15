@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+}
+
+.navegacao {
+    box-shadow: 0px 0px 5px #343434;
+}
+
+.navegacao a {
+    color: #000000;
+    font: 16px Times New Roman;
+}
+
+#logo {
+    font: bold 19px Times New Roman;
+}
+
+h1 {
+    font: 42px Times New Roman;
+}
+
+#ResultadoUniforme {
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 1px 10px  #232323;
+}
+
+#ResultadoBinomial {
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 1px 10px  #232323;
+}
+
+#ResultadoNormal {
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 1px 10px  #232323;
+}
+
+.footer {
+    background-color: #FFC107;
+    padding-bottom: 1em;
+    box-shadow: 0px 0px 5px #343434;
+    position: fixed;
+}
+
+.footer p {
+    font: bold 18px 'Times New Roman';
+}

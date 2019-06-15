@@ -2,17 +2,10 @@
 <html>
     <head>
         <meta charset="utf8" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>Projeto Estatistica</title>
-        <style>
-            #container {
-                position: relative;
-                width: 60%;
-                height: 400px;
-                margin: 0 auto;
-                padding: 0;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/correlacao.css">
+        <title>Quick Statistics | Correlação e Regressão</title>
         <script type="text/javascript" src="js/correlacao.js"></script> 
         <script	src="https://cdn.anychart.com/samples/scatter-charts/combination-of-line-and-marker-charts/data.js"></script>
         <script	src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
@@ -20,22 +13,52 @@
         <script	src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
     </head>
     <body>
+        <nav class ="navbar navbar-expand-lg navbar-fixed-top bg-warning navegacao">
+            <div class ="container">   
+                <div class="col-md-3">             
+                    <a class="navbar-brand h1 mb-0 text-dark" id="logo"><img src="images/logo.png" />uick Statistics</a>        
+                    <button class ="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>  
+                </div>      
+                <div class="float-left">
+                    <div class="collapse navbar-collapse" id ="navbarSite">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Início</a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=descritiva.html>Estatística Descritiva</a>
+                            </li>   
+                            <li class="nav-item">
+                                <a class="nav-link" href=probabilidade.html>Probabilidade</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=correlacao.html>Correlação e Regressão</a>
+                            </li>
+                        </ul>        
+                        <ul class="navbar-nav ml-auto">        
+                        </ul>        
+                    </div>
+                </div>  
+            </div>  
+        </nav>
+
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12 text-left mt-4">
                     <h1>Correlação e Regressão</h1>
-                    <hr>
                 </div>
             </div>
         </div>       
-        <div class="container bg-light">
+        <div class="container InserirDados mb-2 mt-2">
             <form>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 mt-3">
                         <label for="NomeIndependente">Nome da variavel independente:</label>
                         <input type="text" class="form-control" id="NomeIndependente" placeholder="Nome da variavel (X).">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 mt-3">
                         <label for="ValoresIndependente">Valores de (X):</label>
                         <input type="text" class="form-control" id="ValoresIndependente" placeholder="Valores de (X) separados por espaços.">
                     </div>
@@ -50,16 +73,17 @@
                         <input type="text" class="form-control" id="ValoresDependente" placeholder="Valores de (Y) separados por espaços.">
                     </div> 
                 </div>
-                <input type="button" value="Calcular" class="btn btn-primary" onclick="Calcular()">
+                <input type="button" value="Calcular" class="btn btn-warning" onclick="Calcular()">
             </form>
+            <br>
         </div>
         <br>
-        <div id="dados" class="container"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1 col-sm-3" id="equacao1"></div>
+        <div class="container col-md-8" id="Resultado">
+            <div id="dados" class="row"></div>
+            <div class="row" id="equacao">
+                <div class="col-md-2 text-right col-sm-3" id="equacao1"></div>
                 <div class="col-md-1 col-sm-1" id="equacao2"></div>
-                <div class="col-md-1 col-sm-4" id="equacao3"></div>
+                <div class="col-md-2 text-center col-sm-4" id="equacao3"></div>
                 <div class="col-md-1 col-sm-1" id="equacao4"></div>
                 <div class="col-md-1 col-sm-3" id="equacao5"></div>
             </div>
@@ -68,5 +92,14 @@
         <!--ÁREA DO GRÁFICO-->
             <div id="container"></div>
         </div>
+
+        <div class="container-fluid footer text-center">
+            <br>
+            <p>&copy;Quick Statistics - 2019</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

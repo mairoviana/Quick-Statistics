@@ -3,19 +3,50 @@
 
     <head>
         <meta charset="utf8" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>Projeto Estatistica</title>
+        <link rel="stylesheet" type="text/css" href="css/probabilidade.css">
+        <title>Quick Statistics | Probabilidade</title>
         <script type="text/javascript" src="js/probabilidade.js"></script> 
     </head>
 
     <body>
+        <nav class ="navbar navbar-expand-lg navbar-fixed-top bg-warning navegacao">
+            <div class ="container">   
+                <div class="col-md-3">             
+                    <a class="navbar-brand h1 mb-0 text-dark" id="logo"><img src="images/logo.png" />uick Statistics</a>        
+                    <button class ="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>  
+                </div>      
+                <div class="float-left">
+                    <div class="collapse navbar-collapse" id ="navbarSite">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Início</a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=descritiva.html>Estatística Descritiva</a>
+                            </li>   
+                            <li class="nav-item">
+                                <a class="nav-link" href=probabilidade.html>Probabilidade</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=correlacao.html>Correlação e Regressão</a>
+                            </li>
+                        </ul>        
+                        <ul class="navbar-nav ml-auto">        
+                        </ul>        
+                    </div>
+                </div>  
+            </div>  
+        </nav>
 
-        <div class="jumbutron jumbotron-fluid">
+        <div class="jumbutron jumbotron-fluid mb-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center">
+                    <div class="col-12 text-left mt-4">
                         <h1>Probabilidade</h1>
-                        <hr>
                     </div>
                 </div>
 
@@ -53,7 +84,7 @@
                                             <input type="text" class="form-control" name="intervalo" id="maximo" placeholder="Ponto máximo">
                                         </div>                                        
                                         
-                                        <input type="button" value="Calcular" class="btn btn-primary" onclick="probabilidadeUniforme()">
+                                        <input type="button" value="Calcular" class="btn btn-warning" onclick="probabilidadeUniforme()">
 
                                     </div> 
                                     <br>
@@ -64,7 +95,7 @@
                                     </div>
                                 </form> 
                                 <!--PROBABILIDADE CALCULADA-->
-                                <div id="ResultadoUniforme"></div>
+                                <div class= "container col-md-8 mt-4" id="ResultadoUniforme"></div>
                             </div>
 
                             <div class="tab-pane fade" id="nav-item-02" role="tabpanel">
@@ -92,7 +123,7 @@
                                                 <input type="text" class="form-control" name="K" id="Kbinomial" placeholder="K (evento)">
                                             </div>                                       
                                             
-                                            <input type="button" value="Calcular" class="btn btn-primary" onclick="probabilidadeBinomial()">
+                                            <input type="button" value="Calcular" class="btn btn-warning" onclick="probabilidadeBinomial()">
     
                                         </div> 
                                         <br>
@@ -104,47 +135,50 @@
                                     </form> 
                                 </div>            
                                 <!--PROBABILIDADE CALCULADA-->
-                                <div id="ResultadoBinomial"></div>                   
+                                <div class="container col-md-8 mt-4" id="ResultadoBinomial"></div>                   
                             </div>
 
-                            <div class="tab-pane fade" id="nav-item-03" role="tabpanel">
-                                <div class="row">
-                                    <form>
-                                        <div class="row">               
-                                            <div class="col">                          
-                                                <select name="opcao" class="form-control" id="OpcaoNormal" onchange="OpcaoProbabilidadeNormal()">
-                                                    <option value="Escolha" selected disabled>Escolha</option>
-                                                    <option value="Maior que">Maior que</option> 
-                                                    <option value="Entre">Entre</option>
-                                                    <option value="Menor que">Menor que</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="col">
-                                                <input type="text" class="form-control" name="media" id="mediaNormal" placeholder="Média">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" name="desvioPadrao" id="desvioPadrao" placeholder="Desvio Padrão">
-                                            </div>                                        
-                                            
-                                            <input type="button" value="Calcular" class="btn btn-primary" onclick="probabilidadeNormal()">
-    
-                                        </div> 
-                                        <br>
-                                        <div class="row justify-content-start">   
-                                            <div class="col"></div>                                     
-                                            <!--INTERVALO-->
-                                            <div id="EscolhaNormal"></div>
+                            <div class="tab-pane fade" id="nav-item-03" role="tabpanel">                                
+                                <form>
+                                    <div class="row">               
+                                        <div class="col">                          
+                                            <select name="opcao" class="form-control" id="OpcaoNormal" onchange="OpcaoProbabilidadeNormal()">
+                                                <option value="Escolha" selected disabled>Escolha</option>
+                                                <option value="Maior que">Maior que</option> 
+                                                <option value="Entre">Entre</option>
+                                                <option value="Menor que">Menor que</option>
+                                            </select>
                                         </div>
-                                    </form>                                     
-                                </div>
+                                        
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="media" id="mediaNormal" placeholder="Média">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="desvioPadrao" id="desvioPadrao" placeholder="Desvio Padrão">
+                                        </div>                                        
+                                        
+                                        <input type="button" value="Calcular" class="btn btn-warning" onclick="probabilidadeNormal()">
+
+                                    </div> 
+                                    <br>
+                                    <div class="row justify-content-start">   
+                                        <div class="col"></div>                                     
+                                        <!--INTERVALO-->
+                                        <div id="EscolhaNormal"></div>
+                                    </div>
+                                </form> 
                                 <!--PROBABILIDADE CALCULADA-->                                    
-                                <div id="ResultadoNormal"></div>
+                                <div class="container col-md-8 mt-4" id="ResultadoNormal"></div>
                             </div>
                         </div>
                     </div>
                 </div>   
             </div>
+        </div>
+
+        <div class="container-fluid footer text-center mt-5">
+            <br>
+            <p>&copy;Quick Statistics - 2019</p>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

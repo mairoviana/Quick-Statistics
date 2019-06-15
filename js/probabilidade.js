@@ -150,12 +150,16 @@ function probabilidadeUniforme() {
     let opcaoAtiva = document.getElementById("OpcaoUniforme").options[document.getElementById("OpcaoUniforme").selectedIndex].text
 
     let probab = document.createElement('p');
+        probab.style.paddingLeft = "3%";
+        probab.style.paddingBottom = "2%";
     let probabilidade, textoProbab, pai;
     pai = document.getElementById('ResultadoUniforme');
 
     //CALCULAR A MÉDIA
     let media = (minimo + maximo) / 2;
     let med = document.createElement('p');
+        med.style.paddingTop = "2%";
+        med.style.paddingLeft = "3%";
     let textomed = document.createTextNode('Media: ' + media);
     med.appendChild(textomed);
     pai.appendChild(med);
@@ -164,18 +168,22 @@ function probabilidadeUniforme() {
     let variancia = ((maximo - minimo) ** 2) / 12
     let desvioPadrao = Math.sqrt(variancia);
     let dp = document.createElement('p');
+        dp.style.paddingLeft = "3%";
+    let vr = document.createElement('p');
+        vr.style.paddingLeft = "3%";
     let textodp = document.createTextNode('Desvio Padrão: ' + desvioPadrao.toFixed(2));
     let textovr = document.createTextNode('Variancia: ' + variancia.toFixed(2));
-    dp.appendChild(textovr);
     dp.appendChild(textodp);
+    vr.appendChild(textovr);
     pai.appendChild(dp);
+    pai.appendChild(vr)
 
     //CALCULAR A PROBABILIDADE
     switch (opcaoAtiva) {
         case 'Maior que':
             let maiorQ = document.getElementById('Maiorque').value;
             probabilidade = (1 / (maximo - minimo)) * (maximo - maiorQ);
-            textoProbab = document.createTextNode('Probabilidade: ' + (probabilidade * 100) + '%');
+            textoProbab = document.createTextNode('Probabilidade: ' + (probabilidade * 100).toFixed(2) + '%');
             probab.appendChild(textoProbab);
             pai.appendChild(probab);
             break;
@@ -183,14 +191,14 @@ function probabilidadeUniforme() {
             let entre1 = document.getElementById('Entre1').value;
             let entre2 = document.getElementById('Entre2').value;
             probabilidade = (1 / (maximo - minimo)) * (entre2 - entre1);
-            textoProbab = document.createTextNode('Probabilidade: ' + (probabilidade * 100) + '%');
+            textoProbab = document.createTextNode('Probabilidade: ' + (probabilidade * 100).toFixed(2) + '%');
             probab.appendChild(textoProbab);
             pai.appendChild(probab);
             break;
         case 'Menor que':
             let menorQ = document.getElementById('Menorque').value;
             probabilidade = (1 / (maximo - minimo)) * (menorQ - minimo);
-            textoProbab = document.createTextNode('Probabilidade: ' + (probabilidade * 100) + '%');
+            textoProbab = document.createTextNode('Probabilidade: ' + (probabilidade * 100).toFixed(2) + '%');
             probab.appendChild(textoProbab);
             pai.appendChild(probab);
             break;
@@ -222,16 +230,18 @@ function probabilidadeBinomial() {
     let variancia = (n * p * q);
     let DPbinomial = Math.sqrt(variancia);
 
-    let probab = document.createElement('p');
     let med = document.createElement('p');
+        med.style.paddingTop = "2%";
+        med.style.paddingLeft = "3%";
     let dp = document.createElement('p');
+        dp.style.paddingLeft = "3%";
     let vr = document.createElement('p');
+        vr.style.paddingLeft = "3%";
+    let probab = document.createElement('p');
+        probab.style.paddingLeft = "3%";
+        probab.style.paddingBottom = "2%";
     let probabilidade, textoProbab, textoMed, textoDP, textovr, pai;
-    pai = document.getElementById('ResultadoBinomial');
-
-    textoProbab = document.createTextNode('Probabilidade: ' + (soma * 100).toFixed(2) + "%");
-    probab.appendChild(textoProbab);
-    pai.appendChild(probab);
+    pai = document.getElementById('ResultadoBinomial');    
 
     textoMed = document.createTextNode('Média: ' + mediaBinomial.toFixed(2));
     med.appendChild(textoMed);
@@ -244,6 +254,10 @@ function probabilidadeBinomial() {
     textovr = document.createTextNode('Variancia: ' + variancia.toFixed(2));
     vr.appendChild(textovr);
     pai.appendChild(vr);
+
+    textoProbab = document.createTextNode('Probabilidade: ' + (soma * 100).toFixed(2) + "%");
+    probab.appendChild(textoProbab);
+    pai.appendChild(probab);
 };
 
 function probabilidadeNormal() {
@@ -294,6 +308,7 @@ function probabilidadeNormal() {
     let desviopadraoNormal = parseFloat(document.getElementById('desvioPadrao').value);
     let opcaoAtiva = document.getElementById("OpcaoNormal").options[document.getElementById("OpcaoNormal").selectedIndex].text
     let z = [], zSep = [], doisPrimeiros = [], doisPrimeiros1 = [], probabilidade, linha, linha1, coluna, coluna1, Tb, Tb1;
+    let pai = document.getElementById('ResultadoNormal');
     switch (opcaoAtiva) {
         case 'Maior que':
             let maiorQ = parseFloat(document.getElementById('Maiorque').value);
@@ -307,7 +322,6 @@ function probabilidadeNormal() {
                 coluna = parseInt(zSep[3]);
                 Tb = tabelaDist[linha][coluna];
                 probabilidade = (0.5 - Tb) * 100;
-                alert("Probabilidade: " + probabilidade.toFixed(2) + "%");
             };
             if (maiorQ < mediaNormal) {
                 z[0] = ((maiorQ - mediaNormal) / desviopadraoNormal).toFixed(2);
@@ -319,11 +333,9 @@ function probabilidadeNormal() {
                 coluna = parseInt(zSep[4]);
                 Tb = tabelaDist[linha][coluna];
                 probabilidade = (0.5 - Tb) * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             if (maiorQ == mediaNormal) {
                 probabilidade = 0.5 * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             break;
         case 'Entre':
@@ -350,7 +362,6 @@ function probabilidadeNormal() {
                 coluna1 = parseInt(zSep[1][3]);
                 Tb1 = tabelaDist[linha1][coluna1];
                 probabilidade = (Tb1 - Tb) * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             if (entre1 < mediaNormal && entre2 < mediaNormal) {
                 z[0] = ((entre1 - mediaNormal) / desviopadraoNormal).toFixed(2);
@@ -373,7 +384,6 @@ function probabilidadeNormal() {
                 coluna1 = parseInt(zSep[1][4]);
                 Tb1 = tabelaDist[linha1][coluna1];
                 probabilidade = (Tb - Tb1) * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             if (entre1 < mediaNormal && entre2 > mediaNormal) {
                 z[0] = ((entre1 - mediaNormal) / desviopadraoNormal).toFixed(2);
@@ -396,7 +406,6 @@ function probabilidadeNormal() {
                 coluna1 = parseInt(zSep[1][3]);
                 Tb1 = tabelaDist[linha1][coluna1];
                 probabilidade = (Tb + Tb1) * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             if (entre1 == mediaNormal && entre2 > mediaNormal) {
                 z[1] = ((entre2 - mediaNormal) / desviopadraoNormal).toFixed(2);
@@ -410,7 +419,6 @@ function probabilidadeNormal() {
                 coluna1 = parseInt(zSep[1][3]);
                 Tb1 = tabelaDist[linha1][coluna1];
                 probabilidade = Tb1 * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             if (entre1 < mediaNormal && entre2 == mediaNormal) {
                 z[0] = ((entre1 - mediaNormal) / desviopadraoNormal).toFixed(2);
@@ -424,7 +432,6 @@ function probabilidadeNormal() {
                 coluna = parseInt(zSep[0][4]);
                 Tb = tabelaDist[linha][coluna];
                 probabilidade = Tb * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             break;
         case 'Menor que':
@@ -439,7 +446,6 @@ function probabilidadeNormal() {
                 coluna = parseInt(zSep[3]);
                 Tb = tabelaDist[linha][coluna];
                 probabilidade = (0.5 - Tb) * 100;
-                alert("Probabilidade: " + probabilidade.toFixed(2) + "%");
             };
             if (menorQ < mediaNormal) {
                 z[0] = ((menorQ - mediaNormal) / desviopadraoNormal).toFixed(2);
@@ -451,14 +457,19 @@ function probabilidadeNormal() {
                 coluna = parseInt(zSep[4]);
                 Tb = tabelaDist[linha][coluna];
                 probabilidade = (0.5 - Tb) * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             if (menorQ == mediaNormal) {
                 probabilidade = 0.5 * 100;
-                alert(probabilidade.toFixed(2) + "%");
             };
             break;
     };
+    let textoProbab = document.createTextNode('Probabilidade: ' + probabilidade.toFixed(2) + "%");
+    let probab = document.createElement('p');
+        probab.style.paddingLeft = "3%";
+        probab.style.paddingBottom = "2%";
+        probab.style.paddingTop = "2%";
+    probab.appendChild(textoProbab);
+    pai.appendChild(probab);
 };
 
 function fat(num) {

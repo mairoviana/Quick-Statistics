@@ -2,51 +2,106 @@
 <html>
     <head>
         <meta charset="utf8" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="css/magic-check.css" rel="stylesheet">
-        <title>Projeto Estatistica | Descritiva</title>
-        <script type="text/javascript" src="js/descritiva.js"></script>        
+        <link rel="stylesheet" type="text/css" href="css/descritiva.css">
+        <title>Quick Statistics | Estatística Descritiva</title>
+        <link rel="stylesheet" type="text/css" href="css/descritiva.css">
+        <script type="text/javascript" src="js/descritiva.js"></script>   
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
     </head>
     <body>
+        <nav class ="navbar navbar-expand-lg navbar-fixed-top bg-warning navegacao">
+            <div class ="container">   
+                <div class="col-md-3">             
+                    <a class="navbar-brand h1 mb-0 text-dark" id="logo"><img src="images/logo.png" />uick Statistics</a>        
+                    <button class ="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>  
+                </div>      
+                <div class="float-left">
+                    <div class="collapse navbar-collapse" id ="navbarSite">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Início</a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=descritiva.html>Estatística Descritiva</a>
+                            </li>   
+                            <li class="nav-item">
+                                <a class="nav-link" href=probabilidade.html>Probabilidade</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=correlacao.html>Correlação e Regressão</a>
+                            </li>
+                        </ul>        
+                        <ul class="navbar-nav ml-auto">
+        
+                        </ul>        
+                    </div>
+                </div>  
+            </div>  
+        </nav>           
+
+
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
-                    <h1>Descritiva</h1>
-                    <hr>
+                <div class="col-12 text-left mt-4">
+                    <h1>Estatística descritiva</h1>
                 </div>
             </div>
         </div>        
-        <div class="container bg-light">            
+        <div class="container InserirDados mb-2 mt-2">            
             <form>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-4 mt-3">
                         <label for="VariavelPesquisada">Variavel Pesquisada:</label>
                         <input type="text" class="form-control" name="variavel" id="variavel" placeholder="Nome da variavel.">                        
                     </div>
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-8 mt-3">
                         <label for="DadosPesquisados">Dados pesquisados:</label>
                         <input type="text" class="form-control" name="dados" id="dados" placeholder="Dados separados por espaços.">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-grou col-md-4">
-                        <input class="magic-radio" input type="radio" name="tipo" value="qualiNominal" checked>Qualitativa Nominal<br> <label for="2"> </label>
-
-
-
-                        <input type="radio" name="tipo" value="qualiOrdinal">Qualitativa Ordinal<br>
-                        <input type="radio" name="tipo" value="quantDiscreta">Quantitativa Discreta<br>
-                        <input type="radio" name="tipo" value="quantContinua">Quantitativa Continua<br>
+                    <div class="form-group col-md-4">
+                        <input class="botao-radio" type="radio" name="tipo" value="qualiNominal" checked>Qualitativa Nominal<br>
+                        <input class="botao-radio" type="radio" name="tipo" value="qualiOrdinal">Qualitativa Ordinal<br>
+                        <input class="botao-radio" type="radio" name="tipo" value="quantDiscreta">Quantitativa Discreta<br>
+                        <input class="botao-radio" type="radio" name="tipo" value="quantContinua">Quantitativa Continua<br><br>
                     </div>
                     <div class="form-group col-md-4">
                         <input type="radio" name="processos" value="0" checked>População<br>
                         <input type="radio" name="processos" value="1">Amostra<br><br>
                     </div>
                 </div>                  
-                <div class="form-row mt-2">
-                    <input type="button" class="btn btn-primary" value="Calcular" onclick="calcular()">
+                <div class="form-row">
+                    <input type="button" class="btn btn-warning" value="Calcular" onclick="calcular()">
                 </div>
             </form>
+            <br>
+            <hr>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mt-3" id="tabela"></div>
+                <div id="grafico"></div>
+            </div>            
+        </div>
+        <div class="container col-md-5">
+            <div class="mt-4 mb-4" id="resultado"></div> 
+        </div>    
+
+        <div class="container-fluid footer text-center">
+            <br>
+            <p>&copy;Quick Statistics - 2019</p>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+}
+
+.InserirDados {
+    border-radius: 20px;
+    box-shadow: 0px 1px 10px  #232323;
+}
+
+.navegacao {
+    box-shadow: 0px 0px 5px #343434;
+    margin-bottom: 5%;
+}
+
+.navegacao a {
+    color: #000000;
+    font: 16px Times New Roman;
+}
+
+#logo {
+    font: bold 19px Times New Roman;
+}
+
+h1 {
+    font: 42px Times New Roman;
+}
+
+.footer {
+    background-color: #FFC107;
+    padding-bottom: 1em;
+    box-shadow: 0px 0px 5px #343434;
+    position: fixed;
+}
+
+.footer p {
+    font: bold 18px 'Times New Roman';
+}
